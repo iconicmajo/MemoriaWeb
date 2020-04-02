@@ -1,0 +1,135 @@
+.elementos{
+    display: flex;
+    justify-content: center;
+}
+.circulo{
+    width: 400px;
+    height: 400px;
+    background: pink;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.arbustos{
+    display: flex;
+    align-items: center;
+    background: black;
+    display: flex;
+    justify-content: center;
+}
+.carta{
+    width: 255px;
+    height: 360px;
+    background-image: url("cards.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carro{
+    width: 255px;
+    height: 360px;
+    background-image: url("carro.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lovers{
+    width: 255px;
+    height: 360px;
+    background-image: url("amantas.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fuerza{
+    width: 255px;
+    height: 360px;
+    background-image: url("fuerza.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.luna{
+    width: 255px;
+    height: 360px;
+    background-image: url("luna.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mago{
+    width: 255px;
+    height: 360px;
+    background-image: url("mago.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.muerte{
+    width: 255px;
+    height: 360px;
+    background-image: url("muerte.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rueda{
+    width: 255px;
+    height: 360px;
+    background-image: url("rueda.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sol{
+    width: 255px;
+    height: 360px;
+    background-image: url("sol.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.grid-container{
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: black;
+    padding: 10px;
+}
+.grid-item {
+  background-image: url("spaceback.jpg");
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.sketch_effect{
+    background-color: #026873;
+    background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
+    background-size: 13px, 29px, 37px, 53px;
+}
