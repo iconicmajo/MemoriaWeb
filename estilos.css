@@ -1,17 +1,14 @@
-.elementos{
-    display: flex;
-    justify-content: center;
-}
-.circulo{
-    width: 400px;
-    height: 400px;
-    background: pink;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
+body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 2em;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    /*position: relative;
+    justify-content: center;*/
+    background-image: url('soles.jpg');
+    background-repeat: repeat;
+    background-size: 100%;
 }
 .arbustos{
     display: flex;
@@ -23,6 +20,7 @@
 .carta{
     width: 255px;
     height: 360px;
+    margin:20px;
     background-image: url("cards.png");
     background-size: cover;
     display: flex;
@@ -32,6 +30,8 @@
 .carro{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
     background-image: url("carro.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -42,6 +42,7 @@
 .lovers{
     width: 255px;
     height: 360px;
+    margin:20px;
     background-image: url("amantas.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -52,6 +53,8 @@
 .fuerza{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
     background-image: url("fuerza.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -62,6 +65,9 @@
 .luna{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
+
     background-image: url("luna.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -72,6 +78,9 @@
 .mago{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
+
     background-image: url("mago.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -82,6 +91,9 @@
 .muerte{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
+
     background-image: url("muerte.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -92,6 +104,9 @@
 .rueda{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
+
     background-image: url("rueda.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -102,6 +117,9 @@
 .sol{
     width: 255px;
     height: 360px;
+    margin:20px;
+    border-radius: 10px;
+
     background-image: url("sol.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -112,11 +130,16 @@
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-.grid-container{
-    display: inline-grid;
+.grid{
+    display: grid;
     grid-template-columns: auto auto auto auto;
-    background-color: black;
-    padding: 10px;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    grid-area: auto;
+    /*background-color: black;
+    background-image: url("spaceback.jpg");*/
+    padding: 30px;
 }
 .grid-item {
   background-image: url("spaceback.jpg");
