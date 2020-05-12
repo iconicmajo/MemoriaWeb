@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tarot Destiny</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Test extends React.Component{ 
+            constructor(props){
+                super(props);
+
+                this.running = null
+                
+                this.state = {
+                    lastFlipped: null,
+                    contador2: 0,
+                    mixedcards: [],
+                    flippedcards: [],
+                    cards: [{
+                        bgImage: 'carro',
+                        backImage: 'carta',
+                        flipped: false,
+                    },{
+                        bgImage: 'carro',
+                        backImage: 'carta',
+                        flipped: false,
+                    },
+                    {
+                        bgImage: 'lovers',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'lovers',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'fuerza',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'fuerza',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'luna',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'luna',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'mago',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'mago',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'muerte',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'muerte',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'rueda',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'rueda',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'sol',
+                        backImage: 'carta',
+                        flipped: false
+                    },
+                    {
+                        bgImage: 'sol',
+                        backImage: 'carta',
+                        flipped: false
+                    }
+                    ],                    
+                }
+
+                //Mix cards
+                for (var cont=0; cont< 16; cont++){ 
+                    var alazar = (parseInt(Math.random()*this.state.cards.length))    
+                    this.state.mixedcards.push(this.state.cards[alazar])
+                    if (alazar > -1) {
+                        this.state.cards.splice(alazar, 1);
+                    }
+                }
+            }
+
+            cardsMatch(cards, newCard) {
+                const card1 = cards[this.state.lastFlipped]
+                const card2 = cards[newCard]
+
+                return card1.bgImage == card2.bgImage
+            }            
+
+            addOnePlay(cardId){
+                if (this.running === null){
+                        const cards = [ ...this.state.mixedcards ]                 
+                    if (cards[cardId].flipped != true){
+                        cards[cardId].flipped = true
+                        if (this.state.lastFlipped !== null){
+                            if (this.cardsMatch(cards, cardId)) {
+                                const card1 = cards[this.state.lastFlipped]
+                                const card2 = cards[cardId]
+                                this.state.flippedcards.push(card1)
+                                this.state.flippedcards.push(card2)                                
+                                this.running = null
+                                this.setState({ contador2: this.state.contador2 + 1, lastFlipped: null, cards })
+                                if (this.state.flippedcards.length === this.state.mixedcards.length){
+                                alert("Your Destiny has been writted, Congratuations!")
+                                }
+                            }                                
+                            else {
+                                this.setState({ cards })
+                                this.running = setTimeout(() => {
+                                    const card1 = cards[this.state.lastFlipped]
+                                    const card2 = cards[cardId]
+                                    card1.flipped = false
+                                    card2.flipped = false
+                                    this.running = null                                
+                                    this.setState({ contador2: this.state.contador2 + 1, lastFlipped: null, cards })                       
+                                }, 1000);       
+                                                        
+                            }                                   
+                        }
+                        else{
+                            this.setState({ lastFlipped: cardId, cards })
+                        }
+                    }
+                }
+                else{
+
+                }
+                                                
+            }
+
+            render(){                 
+                return(
+                    <div className='mainDiv'>
+                        <Header />
+                        <div className='grid' >
+                            {
+                                this.state.mixedcards.map((card, idex) => {
+                                    return(
+                                        <Card key={idex} card={card} contador2={this.state.contador2} verdad= {card.flipped} uuuu={()=> { this.addOnePlay(idex) }}  />
+                                    )
+                                })
+                            }                            
+                        </div> 
+                        <Contador contador={this.state.contador} contador2={this.state.contador2} /> 
+                    </div>
+                ) 
+            } 
+        } 
+
+        class Contador extends React.Component{    
+            render(){
+                return(
+                    <h2>Moves: {this.props.contador2}</h2>
+                ) 
+            }
+        }
+
+        class Header extends React.Component{
+            render(){
+                return(
+                    <div className="header">
+                        <h1>Choose Wisely</h1>
+                    </div>
+                )
+            }
+        }
+
+        class Card extends React.Component{ 
+            render(){ 
+                if (!this.props.verdad){
+                    return(
+                    <div className={this.props.card.backImage} 
+                    onClick={ this.props.uuuu }
+                    ></div>
+                ) 
+                }
+                else {
+                    return(
+                    <div className={this.props.card.bgImage}> </div>
+                ) 
+                }
+                
+            } 
+        } 
+        ReactDOM.render(
+             <Test />,document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>
